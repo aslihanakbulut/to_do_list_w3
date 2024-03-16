@@ -1,148 +1,49 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.btn-add
-{
-    background-color: #198754;
-}
-
-.btn-add:hover{
-    background-color: #215242;
-    color:#000;
-}
-
-.form-control{
-    size: 15% !important;
-}
-
-h1 {
+.navbar{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
     text-align: left;
+    font-weight: 500;
+    height:30px;
+    background-color: rgb(73, 73, 73) !important;
+ 
 }
 
-input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.fw-500{
+    font-weight: 500 !important;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+ .card-title{
+    margin-bottom: 8px;
+    padding: 4px;
+               
 }
 
-button:hover {
-    background-color: #215242;
-    color:#000;
+.btn{
+    border-radius: 3px !important;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
 
-li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-.delete-btn {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
-
-.fw-400{
-    font-weight: 400 !important;
-}
-.card-title{
-    margin-bottom: 10px;
-    padding: 5px;
-    
-}
 .task-list-item{
     background-color: #d0cccc;
     border-bottom: 1px solid white;
     height: 40px;
 }
-.h-50px{
-    height: 50px;
-}
-.footer-text{
-    line-height: 50px;
-  } */
-  
-  body{
-      font-family: "Roboto", sans-serif;
-    }
 
-    .fw-400{
-        font-weight: 500 !important;
-    }
-
-    .card-title{
-        margin-bottom: 10px;
-        padding: 5px;
-               
-    }
-
- 
-    .navbar{
-        margin-top: 2%;
-        margin-left: 2%;
-        margin-right: 2%;
-        text-align: left;
-    
-        height:30px;
-        background-color: rgb(73, 73, 73) !important;
-     
-    }
-    .task-list-item{
-        background-color: #d0cccc;
-        border-bottom: 1px solid white;
-    height: 40px;
-}
 
 .footer{
     margin-top: 1%;
     margin-left: 2%;
     margin-right: 2%;
     text-align : center;
-
     height:40px;
     background-color: rgb(73, 73, 73) !important;
     color: #d0cccc;
     font-size: large;
     font-style: italic;
 }
+
 
 .completed-task {
     text-decoration: line-through !important;

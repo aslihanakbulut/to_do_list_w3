@@ -1,84 +1,96 @@
-// Task List ve Completed Task List için boş dizi oluştur
-let taskList = [];
-let completedList = [];
+// task_list ve completed task icin dizi
+let task_list = [];
+let completed_list = [];
 
-// Add Task butonuna tıklandığında
-document.getElementById('btnAddTaskList').addEventListener('click', function() {
-    let newTaskName = document.getElementById('newTaskName').value.trim();
-    if (newTaskName !== '') {
-        if (taskList.includes(newTaskName) || completedList.includes(newTaskName)) {
+// add_task btn tıiklandiginda yeni task ekle
+document.getElementById('add_task').addEventListener('click', function() {
+
+    let newTask = document.getElementById('new_task').value.trim(); //new task
+    if (newTask !== '') {
+
+        if (task_list.includes(newTask) || completed_list.includes(newTask)) { // daha once eklendiyse uyari gonder
             alert('Bu görev zaten eklenmiş.');
             return;
         }
-        taskList.push(newTaskName);
-        renderTaskList();
-        document.getElementById('newTaskName').value = '';
+
+        task_list.push(newTask);
+        render_task_list();
+        document.getElementById('new_task').value = '';
     }
 });
 
-// Tamamlandı butonuna tıklandığında
-document.getElementById('btnCompletedTask').addEventListener('click', function() {
-    let selectedTasks = document.querySelectorAll('.task-item input:checked');
-    selectedTasks.forEach(task => {
+// tamamlandi butonu
+document.getElementById('completed_btn').addEventListener('click', function() {
+
+    let selected_task = document.querySelectorAll('.task-item input:checked'); //secilen task
+
+    selected_task.forEach(task => {
         let index = parseInt(task.dataset.index);
-        let completedTask = taskList.splice(index, 1)[0];
-        completedList.push(completedTask);
+        let completedTask = task_list.splice(index, 1)[0];
+        completed_list.push(completedTask);
     });
-    renderTaskList();
-    renderCompletedList();
+    render_task_list();
+    render_Completed_list();
 });
 
-// Listeden Çıkar butonuna tıklandığında
-document.getElementById('btnRemoveTask').addEventListener('click', function() {
-    let selectedTasks = document.querySelectorAll('.task-item input:checked');
-    selectedTasks.forEach(task => {
+// listeden cikar
+document.getElementById('remove_btn').addEventListener('click', function() {
+
+    let selected_task = document.querySelectorAll('.task-item input:checked'); //secilen task
+    selected_task.forEach(task => {
         let index = parseInt(task.dataset.index);
-        taskList.splice(index, 1);
+        task_list.splice(index, 1);
     });
-    renderTaskList();
+    render_task_list();
 });
 
-// Tümünü Seç butonuna tıklandığında
-document.getElementById('btnSelectAll').addEventListener('click', function() {
-    let allTasks = document.querySelectorAll('.task-item input');
+// tumu secildiginde
+document.getElementById('select_all_btn').addEventListener('click', function() {
+
+    let allTasks = document.querySelectorAll('.task-item input');// secilen tum tasks
     allTasks.forEach(task => {
         task.checked = true;
     });
 });
 
-// Clear List butonuna tıklandığında
-document.getElementById('btnClearList').addEventListener('click', function() {
-    completedList = [];
-    renderCompletedList();
+// clear_btn 
+document.getElementById('clear_btn').addEventListener('click', function() {
+
+    completed_list = []; // diziyi sifirla
+    render_Completed_list();
 });
 
-// Task List'i yeniden oluştur
-function renderTaskList() {
-    let taskListUl = document.getElementById('taskListUl');
-    taskListUl.innerHTML = '';
-    taskList.forEach((task, index) => {
-        let li = document.createElement('li');
-        li.classList.add('list-group-item', 'task-item');
-        li.innerHTML = `
-            <input type="checkbox" data-index="${index}" class="form-check-input me-2">
-            <span>${task}</span>
-        `;
-        taskListUl.appendChild(li);
+// task_list render islemi
+function render_task_list() {
+
+    let task_list_grp = document.getElementById('task_list_grp');
+
+    task_list_grp.innerHTML = '';
+    task_list.forEach((task, index) => {
+        
+        let element_taskList = document.createElement('element_taskList');
+        element_taskList.classList.add('list-group-item', 'task-item');
+        element_taskList.innerHTML = ` <input type="checkbox" data-index="${index}" class="form-check-input me-2"> <span>${task}</span>`;
+
+        task_list_grp.appendChild(element_taskList);
     });
 }
 
-// Completed Task List'i yeniden oluştur
-function renderCompletedList() {
-    let completedListUl = document.getElementById('completedListUl');
-    completedListUl.innerHTML = '';
-    completedList.forEach(task => {
-        let li = document.createElement('li');
-        li.classList.add('list-group-item', 'completed-item');
-        li.innerHTML = `<s>${task}</s>`;
-        completedListUl.appendChild(li);
+// comp_list render islemleri 
+function render_Completed_list() {
+
+    let comp_list_grp = document.getElementById('comp_list_grp');
+    comp_list_grp.innerHTML = '';
+
+    completed_list.forEach(task => {
+
+        let element_cmp = document.createElement('element_cmp');
+        element_cmp.classList.add('list-group-item', 'completed-item');
+        element_cmp.innerHTML = `<s>${task}</s>`;
+        comp_list_grp.appendChild(element_cmp);
     });
 }
 
 // İlk render işlemleri
-renderTaskList();
-renderCompletedList();
+render_task_list();
+render_Completed_list();
